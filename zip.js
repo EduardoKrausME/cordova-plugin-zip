@@ -10,6 +10,7 @@ function newProgressEvent( result ){
 
 exports.unzip = function( fileName, outputDirectory, callback, progressCallback ){
     var win  = function( result ){
+        console.log(result);
         if( result && typeof result.loaded != "undefined" ){
             if( progressCallback ){
                 return progressCallback( newProgressEvent( result ) );
@@ -19,6 +20,7 @@ exports.unzip = function( fileName, outputDirectory, callback, progressCallback 
         }
     };
     var fail = function( result ){
+        console.error(result);
         if( callback ){
             callback( -1 );
         }
