@@ -36,7 +36,7 @@ public class Zip extends CordovaPlugin {
     private void unzip(final CordovaArgs args, final CallbackContext callbackContext) {
         this.cordova.getThreadPool().execute(new Runnable() {
             public void run() {
-                unzipSync(args, callbackContext);
+                unzipAppSync(args, callbackContext);
             }
         });
     }
@@ -50,7 +50,7 @@ public class Zip extends CordovaPlugin {
         return a | b << 8 | c << 16 | d << 24;
     }
 
-    private void unzipSync(CordovaArgs args, CallbackContext callbackContext) {
+    private void unzipAppSync(CordovaArgs args, CallbackContext callbackContext) {
         InputStream inputStream = null;
         try {
             String zipFileName = args.getString(0);
